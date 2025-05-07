@@ -108,12 +108,16 @@ int main(void){
 
     Game mygame;
     
+    int *user_n_ptr;
     
-    int *user_n_ptr = mygame.get_input_from_user();
+    for (int i=0; i<9; i++){
+        user_n_ptr = mygame.get_input_from_user();
+        if(mygame.compare_with_com_number(user_n_ptr)){
+            return 0;
+        }
+        cout<<"아쉽지만 9회말 종료되었습니다. game over "<< endl;
+    }
     
-  
-
-    mygame.compare_with_com_number(user_n_ptr);
     
 
     return 0;
