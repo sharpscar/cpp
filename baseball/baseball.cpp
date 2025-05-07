@@ -34,7 +34,13 @@ int*  Game::get_input_from_user(){
     int num=0;
     cout << "첫번째 숫자를 입력하세요 : ";
     cin >>num;
+    if(num <=0||num >= 10 )
+    {
+        cout<<"1~9사이 값을 입력해주세요"<<endl;
+        cin>>num;
+    }
     input_num[0] = num;
+
     cout << "두번째 숫자를 입력하세요 : ";
     cin >> num;
     input_num[1] = num;
