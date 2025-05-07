@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/c++/13",
+                "/usr/include/x86_64-linux-gnu/c++/13",
+                "/usr/include",
+                "/usr/local/include"
+            ],
+            "defines": [],
+            "cppStandard": "c++11",
+            "compilerPath": "/usr/bin/clang"
+        }
+    ],
+    "version": 4
+}
