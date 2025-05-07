@@ -12,8 +12,10 @@ using namespace std;
 Game::Game(){
     srand(time(NULL));
 
-    // com_num = {0};array<int,3> com_num
+
     com_num[3] = {};
+    user_num[3] = {0,};
+
 
     for (int i=0; i< 3; i++){
         
@@ -28,41 +30,28 @@ Game::Game(){
                 
     }
 
-    // while(com_num[0]!=com_num[1] && com_num[1] != com_num[2]&& com_num[0]!= com_num[2])
-    // {
-    //     for (int i=0; i< 3; i++){
-    //         com_num[i] = (rand() % 9 )+1;
-    //         cout<< "com_num[i]"<<com_num[i]<< endl;
-    //     }
-
-    // }
-    
-    // for (int i=0; i< 3; i++){
-    //     com_num[i] = (rand() % 9 )+1;
-    //     cout<< "com_num[i]"<<com_num[i]<< endl;
-    // }
-    
+  
 
 }
 int*  Game::get_input_from_user(){
     //사용자로 부터 입력을 받아서  user_num 배열에 하나씩 할당!
-    int static user_num[3];
+    int static input_num[3]={};
     int num=0;
-    std::cout << "첫번째 숫자를 입력하세요 : ";
-    std::cin >>num;
-    user_num[0] = num;
-    std::cout << "두번째 숫자를 입력하세요 : ";
-    std::cin >> num;
-    user_num[1] = num;
-    std::cout << "세번째 숫자를 입력하세요 : ";
-    std::cin >>  num;
-    user_num[2] = num;
+    cout << "첫번째 숫자를 입력하세요 : ";
+    cin >>num;
+    input_num[0] = num;
+    cout << "두번째 숫자를 입력하세요 : ";
+    cin >> num;
+    input_num[1] = num;
+    cout << "세번째 숫자를 입력하세요 : ";
+    cin >>  num;
+    input_num[2] = num;
     // for (int i=0; i<3; i++){
         
     //     cout<< "user_num[i]  : "<<user_num[i]<< endl;
     // }
 
-    return user_num;
+    return input_num;
 
 }
 
@@ -78,9 +67,11 @@ int Game::compare_with_com_number(int * user_num){
     int strike=0;
     int ball =0;
 
-    // for(int i=0; i<3; i++){
-    //     std::cout << com_num[i]  << std::endl;
-    // }
+    for(int i=0; i<3; i++){
+        cout << com_num[i]  << endl;
+        cout <<                                user_num[i]  << endl;
+
+    }
 
     for (int i =0; i<3 ; i++){
 
@@ -102,29 +93,32 @@ int Game::compare_with_com_number(int * user_num){
         }
     }
 
-    std::cout <<" strike is "<< strike << std::endl;
-    std::cout <<" ball is "<< ball << std::endl;
+    cout <<" strike is "<< strike << endl;
+    cout <<" ball is "<< ball << endl;
 
-    // if (strike==3){
-    //     cout <<" 3 strike! game over "<<  endl;
-    //     //   return 0;
+    if (strike==3){
+        cout <<" 3 strike! game over "<<  endl;
+           return 1;
 
-    // }
+    }
     
 }
 
 
-int main(){
+int main(void){
 
     Game mygame;
+    
 
     // int com_num[3] = {0,};
-    int user_num[3] = {0,};
+    int main_u_num[3] = {};
     
-    int *user_n_ptr = user_num;
+    int *user_n_ptr = main_u_num;
     
 
     user_n_ptr = mygame.get_input_from_user();
+    
+  
 
     mygame.compare_with_com_number(user_n_ptr);
     
