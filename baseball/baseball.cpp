@@ -21,7 +21,7 @@ Game::Game(){
                 i--;
                 break;
             }
-        cout<< "컴생성 난수[i]"<<com_num[i]<< endl;
+        // cout<< "컴생성 난수[i]"<<com_num[i]<< endl;
                 
     }
 
@@ -71,14 +71,7 @@ int Game::compare_with_com_number(int * user_num){
         for(int j=0 ; j<3 ; j++){
             // 위치도 같고 값도 같으면
             if(com_num[i] == user_num[j] && i == j){
-                // std::cout << "3스트라이크 게임 종료!"<< std::endl;
-                cout << "strike     :"<< strike <<endl;
-
-                cout << "com_num[i]     :"<< com_num[i] <<endl;
-                cout << "user_num[i]     :"<< user_num[i] <<endl;
                 strike++;
-
-
             }else if(com_num[i]== user_num[j] && i != j){
                 ball++;
             }
@@ -104,6 +97,7 @@ int main(void){
     int *ptr_arr;
 
     for (int i=0; i<9; i++){
+        cout<< i+1<<" 회 게임 시도 입니다."<<endl;
         ptr_arr = mygame.get_input_from_user();
         if(mygame.compare_with_com_number(ptr_arr)){
             return 0;
