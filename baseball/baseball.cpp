@@ -108,14 +108,8 @@ int main(void){
 
     Game mygame;
     
-
-    // int com_num[3] = {0,};
-    int main_u_num[3] = {};
     
-    int *user_n_ptr = main_u_num;
-    
-
-    user_n_ptr = mygame.get_input_from_user();
+    int *user_n_ptr = mygame.get_input_from_user();
     
   
 
