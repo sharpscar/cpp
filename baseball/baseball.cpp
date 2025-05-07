@@ -13,11 +13,7 @@ Game::Game(){
     srand(time(NULL));
 
 
-    
-
-
     for (int i=0; i< 3; i++){
-        
         com_num[i] = (rand() % 9 )+1;
         for(int j=0; j<i; j++)
             if(com_num[i] ==com_num[j]) 
@@ -25,7 +21,7 @@ Game::Game(){
                 i--;
                 break;
             }
-        cout<< "com_num[i]"<<com_num[i]<< endl;
+        cout<< "컴생성 난수[i]"<<com_num[i]<< endl;
                 
     }
 
@@ -34,7 +30,7 @@ Game::Game(){
 }
 int*  Game::get_input_from_user(){
     //사용자로 부터 입력을 받아서  user_num 배열에 하나씩 할당!
-    int static input_num[3]={};
+    int static input_num[3];
     int num=0;
     cout << "첫번째 숫자를 입력하세요 : ";
     cin >>num;
@@ -66,13 +62,11 @@ int Game::compare_with_com_number(int * user_num){
     int strike=0;
     int ball =0;
 
-    for(int i=0; i<3; i++){
-        cout << com_num[i]  << endl;
-        cout <<                                user_num[i]  << endl;
-
-    }
-
+    
+   
     for (int i =0; i<3 ; i++){
+
+        // cout<< "i는"<< i<<endl;
 
         for(int j=0 ; j<3 ; j++){
             // 위치도 같고 값도 같으면
@@ -88,6 +82,7 @@ int Game::compare_with_com_number(int * user_num){
             }else if(com_num[i]== user_num[j] && i != j){
                 ball++;
             }
+            // cout<< "j는"<< j<<endl;
             
         }
     }
@@ -98,27 +93,23 @@ int Game::compare_with_com_number(int * user_num){
     if (strike==3){
         cout <<" 3 strike! game over "<<  endl;
            return 1;
-
     }
-    
+    return 0;
 }
 
 
 int main(void){
 
     Game mygame;
-    
-    int *user_n_ptr;
-    
+    int *ptr_arr;
+
     for (int i=0; i<9; i++){
-        user_n_ptr = mygame.get_input_from_user();
-        if(mygame.compare_with_com_number(user_n_ptr)){
+        ptr_arr = mygame.get_input_from_user();
+        if(mygame.compare_with_com_number(ptr_arr)){
             return 0;
         }
-        cout<<"아쉽지만 9회말 종료되었습니다. game over "<< endl;
     }
-    
-    
+    cout<<"아쉽지만 9회말 종료되었습니다. game over "<< endl;
 
     return 0;
 }
