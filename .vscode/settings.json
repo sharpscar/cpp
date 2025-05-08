@@ -64,6 +64,7 @@
         "ratio": "cpp",
         "stack": "cpp",
         "variant": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "fstream": "cpp"
     }
 }

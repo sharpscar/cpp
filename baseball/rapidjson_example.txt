@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+
+int main() {
+    // Document 객체 생성
+    rapidjson::Document doc;
+
+    // 할당자 확보
+    rapidjson::Document::AllocatorType& allocator = doc.GetAllocator();
+
+    // Value 객체 생성 (배열)
+    rapidjson::Value arr(rapidjson::kArrayType);
+
+    // 데이터 추가
+    arr.PushBack(1, allocator); // 숫자 추가
+    arr.PushBack("string", allocator); // 문자열 추가
+    arr.PushBack(3.14, allocator); // 실수 추가
+
+    // Document 객체에 배열 추가
+    doc.AddMember("myArray", arr, allocator);
+
+    // JSON 문자열로 변환
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    doc.Accept(writer);
+
+    // 결과 출력
+    std::cout << buffer.GetString() << std::endl;
+
+    return 0;
+}
+
+
+ //데이터 추가
+    arr.PushBack(get_current_time(), allocator);
+    arr.PushBack(str, allocator);
+
+    document.AddMember("myArray", arr,allocator );
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    document.Accept(writer);
